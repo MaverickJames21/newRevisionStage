@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Like extends Model
 {
     use HasFactory;
+
+    //record link post
+    public function post()
+    {
+        return $this->hasOne(Post::class);
+    }
+
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
 }
