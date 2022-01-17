@@ -48,6 +48,10 @@ class AuthenticationController extends Controller
         ]);
     }
 
+    private function success($body) {
+        return response()->json($body);
+    }
+
     /**
      * Use this method to signin users.
      *

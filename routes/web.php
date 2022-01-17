@@ -14,5 +14,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('exercice1');
+});
+
+Route::get('/exercice2', function () {
+    return view('exercice2');
+});
+
+
+Route::get('/function', function () {
+    return view('function');
+});
+
+Route::get('/formulaire', function () {
+    return view('formulaire');
+});
+
+Route::get('/poo', function () {
+    return view('poo');
 });

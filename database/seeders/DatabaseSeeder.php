@@ -20,17 +20,17 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
          //Info users
-         $users = User::factory()->count(50)->create();
+         $users = User::factory()->count(15)->create();
 
         //Insert posts
-        $posts = Post::factory()->count(60)->make()
+        $posts = Post::factory()->count(20)->make()
         ->each(function($post) use ($users) {
         $post->user_id = $users->random()->id;
         $post->save();
         });
 
         //Insert comments
-        $comments = Comment::factory()->count(60)->make()
+        $comments = Comment::factory()->count(25)->make()
             ->each(function($comment) use ($users, $posts) {
             $comment->user_id = $users->random()->id;
             $comment->post_id = $posts->random()->id;
@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
         });
 
         //Insert likes
-        $likes = Like::factory()->count(50)->make()
+        $likes = Like::factory()->count(30)->make()
             ->each(function($like) use ($users, $posts) {
             $like->user_id = $users->random()->id;
             $like->post_id = $posts->random()->id;

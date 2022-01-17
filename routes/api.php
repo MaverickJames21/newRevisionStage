@@ -18,7 +18,10 @@ use App\Http\Controllers\AuthenticationController;
 |
 */
 
+// route user
 Route::resource('users', UserController::class);
+Route::post('/create-account', [AuthenticationController::class, 'createAccount']);
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

@@ -42,7 +42,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Use try&catch from UserService
+        try {
+             //  Add new user
+        $user = $this->userService->addUser($request);
+        return new UserResource($user);
+        }
+        catch(Exception $e) {
+            throw $e;
+
+        }
     }
 
     /**
